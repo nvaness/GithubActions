@@ -80,5 +80,30 @@ namespace GithubActionsLab
             Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, "1"));
             Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, null));
         }
+        //divide
+        
+        [Test]
+        public void Divide_Valid_VanEss()
+        {
+            Assert.AreEqual(5, Program.Divide("10", "2"));
+            Assert.AreEqual(2, Program.Divide("20", "10"));
+            Assert.AreEqual(6, Program.Divide("18", "3"));
+        }
+
+        [Test]
+        public void Divide_Invalid_VanEss()
+        {
+            Assert.Throws<FormatException>(() => Program.Divide("1", "a"));
+            Assert.Throws<FormatException>(() => Program.Divide("a", "1"));
+            Assert.Throws<FormatException>(() => Program.Divide("a", "a"));
+        }
+
+        [Test]
+        public void Divide_Null_VanEss()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Divide("1", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Divide(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Divide(null, null));
+        }
     }
 }
