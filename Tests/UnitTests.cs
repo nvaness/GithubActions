@@ -80,7 +80,6 @@ namespace GithubActionsLab
             Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, "1"));
             Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, null));
         }
-        //divide
         
         [Test]
         public void Divide_Valid_VanEss()
@@ -104,6 +103,30 @@ namespace GithubActionsLab
             Assert.Throws<ArgumentNullException>(() => Program.Divide("1", null));
             Assert.Throws<ArgumentNullException>(() => Program.Divide(null, "1"));
             Assert.Throws<ArgumentNullException>(() => Program.Divide(null, null));
+        }
+        
+        [Test]
+        public void Power_Valid_VanEss()
+        {
+            Assert.AreEqual(100, Program.Power("10", "2"));
+            Assert.AreEqual(125, Program.Power("5", "3"));
+            Assert.AreEqual(256, Program.Power("2", "8"));
+        }
+
+        [Test]
+        public void Power_Invalid_VanEss()
+        {
+            Assert.Throws<FormatException>(() => Program.Power("1", "a"));
+            Assert.Throws<FormatException>(() => Program.Power("a", "1"));
+            Assert.Throws<FormatException>(() => Program.Power("a", "a"));
+        }
+
+        [Test]
+        public void Power_Null_VanEss()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Power("1", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Power(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Power(null, null));
         }
     }
 }
