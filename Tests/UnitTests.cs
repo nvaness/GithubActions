@@ -34,7 +34,7 @@ namespace GithubActionsLab
         // Implement 3 tests per operation, following a similar pattern as above
         
         [Test]
-        public void Subtract_Valid()
+        public void Subtract_Valid_VanEss()
         {
             Assert.AreEqual(3, Program.Subtract("5", "2"));
             Assert.AreEqual(5, Program.Subtract("10", "5"));
@@ -42,7 +42,7 @@ namespace GithubActionsLab
         }
 
         [Test]
-        public void Subtract_Invalid()
+        public void Subtract_Invalid_VanEss()
         {
             Assert.Throws<FormatException>(() => Program.Subtract("1", "a"));
             Assert.Throws<FormatException>(() => Program.Subtract("a", "1"));
@@ -50,11 +50,35 @@ namespace GithubActionsLab
         }
 
         [Test]
-        public void Subtract_Null()
+        public void Subtract_Null_VanEss()
         {
             Assert.Throws<ArgumentNullException>(() => Program.Subtract("1", null));
             Assert.Throws<ArgumentNullException>(() => Program.Subtract(null, "1"));
             Assert.Throws<ArgumentNullException>(() => Program.Subtract(null, null));
+        }
+        
+        [Test]
+        public void Multiply_Valid_VanEss()
+        {
+            Assert.AreEqual(10, Program.Multiply("5", "2"));
+            Assert.AreEqual(50, Program.Multiply("10", "5"));
+            Assert.AreEqual(200, Program.Multiply("20", "10"));
+        }
+
+        [Test]
+        public void Multiply_Invalid_VanEss()
+        {
+            Assert.Throws<FormatException>(() => Program.Multiply("1", "a"));
+            Assert.Throws<FormatException>(() => Program.Multiply("a", "1"));
+            Assert.Throws<FormatException>(() => Program.Multiply("a", "a"));
+        }
+
+        [Test]
+        public void Multiply_Null_VanEss()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply("1", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, null));
         }
     }
 }
